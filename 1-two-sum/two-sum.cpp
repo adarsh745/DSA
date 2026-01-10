@@ -1,28 +1,30 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) 
-    {
-        vector<int>vec;
-        int n =nums.size();
-        for(int i=0;i<n;i++)
-        {
-            for(int j=i+1;j<n;j++)
-            {
-                int sum=nums[i]+nums[j];
-                if(sum==target)
-                {
-                    vec.push_back(i);
-                    vec.push_back(j);
-                    return vec;
+    vector<int> twoSum(vector<int>& nums, int k) {
 
-                }
-            }
+        map<int,int>mpp;
+        vector<int>v; 
+
+        for (int i=0;i<nums.size();i++)
+        {
+           if(mpp.find(k-nums[i])!=mpp.end())
+           {
+
+            cout<<k-nums[i];
+              int indx=mpp[k-nums[i]];
+
+              cout<<"this is ind "<<indx<<i<<endl;
+              v.push_back(indx);
+              v.push_back(i);
+              break;
+           }
+
+           mpp.insert({nums[i],i});
+
 
         }
-    
-    return vec;
 
-
+        return v;
         
     }
 };
