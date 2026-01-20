@@ -1,24 +1,18 @@
 class Solution {
 public:
-    int maxProfit(vector<int>& a) {
+    int maxProfit(vector<int>& p) {
 
-        int profit=0;
-        int mini=a[0];
-        int maxi=0;
+        int minValue=p[0];
+        int maxProfit=0;
 
-        for(int i=1;i<a.size();i++)
+        for(int i=1 ; i<p.size();i++)
         {
-
-            profit=a[i]-mini;
-
-             maxi=max(maxi,profit);
-
-            mini=min(mini,a[i]);
-
-        
-
+            int diff=p[i]-minValue;
+            minValue=min(minValue,p[i]);
+            maxProfit=max(maxProfit,diff);
         }
 
-        return maxi;
+        return maxProfit;
+        
     }
 };
